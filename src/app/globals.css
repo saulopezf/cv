@@ -78,3 +78,7 @@
 .print-force-new-page {
   page-break-before: always;
 }
+
+nextjs-portal {
+  display: none;
+}

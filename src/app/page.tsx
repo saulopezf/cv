@@ -27,7 +27,7 @@ export default function Page() {
             <p className="max-w-md items-center text-pretty font-mono text-xs text-muted-foreground">
               <a
                 className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
-                href={RESUME_DATA.locationLink}
+                // href={RESUME_DATA.locationLink}
                 target="_blank"
               >
                 <GlobeIcon className="size-3" />
@@ -73,17 +73,36 @@ export default function Page() {
                 </Button>
               ))}
             </div>
+
+            {/* This div only displays when you print the doc */}
             <div className="hidden flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex">
-              {RESUME_DATA.contact.email ? (
-                <a href={`mailto:${RESUME_DATA.contact.email}`}>
-                  <span className="underline">{RESUME_DATA.contact.email}</span>
-                </a>
-              ) : null}
-              {RESUME_DATA.contact.tel ? (
-                <a href={`tel:${RESUME_DATA.contact.tel}`}>
-                  <span className="underline">{RESUME_DATA.contact.tel}</span>
-                </a>
-              ) : null}
+              <table>
+                <td>
+                  <tr>
+                    {RESUME_DATA.contact.email ? (
+                      <a href={`mailto:${RESUME_DATA.contact.email}`}>
+                        <span className="underline">{RESUME_DATA.contact.email}</span>
+                      </a>
+                    ) : null}
+                  </tr>
+                  <tr>
+                    {RESUME_DATA.contact.tel ? (
+                      <a href={`tel:${RESUME_DATA.contact.tel}`}>
+                        <span className="underline">{RESUME_DATA.contact.tel}</span>
+                      </a>
+                    ) : null}
+                  </tr>
+                </td>
+                <td>
+                  {RESUME_DATA.contact.social.map((social, key) => (
+                    <tr key={key}>
+                      <a href={social.url}>
+                        <span className="underline">{social.name}</span>
+                      </a>
+                    </tr>
+                  ))}
+                </td>
+              </table>
             </div>
           </div>
 
@@ -131,7 +150,7 @@ export default function Page() {
                     {work.title}
                   </h4>
                 </CardHeader>
-                <CardContent className="mt-2 text-xs">
+                <CardContent className="mt-2 text-xs" style={{whiteSpace: 'pre-line'}}>
                   {work.description}
                 </CardContent>
               </Card>
@@ -167,7 +186,7 @@ export default function Page() {
           </div>
         </Section>
 
-        <Section className="print-force-new-page scroll-mb-16">
+        <Section className="scroll-mb-16">
           <h2 className="text-xl font-bold">Projects</h2>
           <div className="-mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
             {RESUME_DATA.projects.map((project) => {
@@ -177,7 +196,7 @@ export default function Page() {
                   title={project.title}
                   description={project.description}
                   tags={project.techStack}
-                  link={"link" in project ? project.link.href : undefined}
+                  link={"link" in project ? project?.link?.href : undefined}
                 />
               );
             })}
@@ -185,7 +204,7 @@ export default function Page() {
         </Section>
       </section>
 
-      <CommandMenu
+      {/* <CommandMenu
         links={[
           {
             url: RESUME_DATA.personalWebsiteUrl,
@@ -196,7 +215,7 @@ export default function Page() {
             title: socialMediaLink.name,
           })),
         ]}
-      />
+      /> */}
     </main>
   );
 }

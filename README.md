@@ -1,10 +1,8 @@
-![cv](https://github.com/BartoszJarocki/cv/assets/1017620/79bdb9fc-0b20-4d2c-aafe-0526ad4a71d2)
+# Minimalist CV - Personal fork
 
-# Minimalist CV [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FBartoszJarocki%2Fcv)
+This is a fork from the [BartoszJarocki/cv repo](https://github.com/BartoszJarocki/cv). I made small changes to fit what I want to show in the curriculum and fixed some issues for downloading the CV in PDF.
 
-Simple web app that renders minimalist CV with print-friendly layout.
-
-Built with Next.js and shadcn/ui, deployed on Vercel.
+This fork is not made to merge with the main project, it is for personal use only.
 
 # Features
 
@@ -19,7 +17,7 @@ Built with Next.js and shadcn/ui, deployed on Vercel.
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/BartoszJarocki/cv.git
+   git clone https://github.com/saulopezf/cv.git
    ```
 
 2. Move to the cloned directory
@@ -59,7 +57,7 @@ docker compose up -d
 Stop the Container
 
 ```
-docker compose down 
+docker compose down
 ```
 
 # License
